@@ -3,12 +3,17 @@ import { useHistory } from 'react-router-dom'
 import Navbar from '../Components/Navbar';
 import { axiosInstance } from '../axios.util';
 import CaseCard from './CaseCard'
+import { useSelector } from 'react-redux';
 
 export default function Cases() {
 
     const initialForm = {
         SearchBar: ""
     }
+
+
+    const userData = useSelector((state) => state.user)
+
 
     const [form, setForm] = useState({ ...initialForm })
     const [caseData, setCaseData] = useState([])
@@ -25,12 +30,12 @@ export default function Cases() {
         })
     }
 
-    const getCases = async() => {
+    const getCases = async () => {
         try {
-            const {data} = await axiosInstance.get(`/api/auth/cases`)
+            const { data } = await axiosInstance.get(`/api/auth/cases`)
             setCaseData(data)
         } catch (error) {
-            
+
         }
     }
 
@@ -46,12 +51,19 @@ export default function Cases() {
                     className='CasesSearchBar'
                 />
             </div>
-            <div style={{width:"100%",height:"5em",lineHeight:"5em",display:"flex",justifyContent:"flex-end"}}>
-                <button className='AddCasesButton' onClick={handlePostRequest}>Create Request</button>
-            </div>
+            {
+                userData.user.type === 'user' ? (
+                    <div style={{ width: "100%", height: "5em", lineHeight: "5em", display: "flex", justifyContent: "flex-end" }}>
+                        <button className='AddCasesButton' onClick={handlePostRequest}>Create Request</button>
+                    </div>
+                ) : (
+                    ""
+                )
+            }
+
 
             <div className='RequestList'>
-                <CaseCard/>
+                <CaseCard />
                 {/* {
                     caseData?.map((item)=>(
                         <CaseCard key={item.id} item={item}/>
