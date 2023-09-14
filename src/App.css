@@ -1,38 +1,55 @@
-.App {
-  text-align: center;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif !important;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.RegisterDiv,
+.LoginDiv {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.RegisterForm,
+.LoginForm {
+    width: 40em;
+    height: auto;
+    padding: 2em;
+    display: flex;
+    flex-direction: column;
+    border: .1em solid rgba(177, 177, 177, 0.781);
+    box-shadow: .5em .5em .5em rgba(131, 131, 131, 0.747) !important;
+    border-radius: .4em;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.RegisterInput,
+.LoginInput {
+    margin-bottom: 2em !important;
+    width: 35em !important;
 }
 
-.App-link {
-  color: #61dafb;
+.RegisterButton,
+.LoginButton {
+    width: 25em !important;
+    height: 3.5em !important;
+    line-height: 3.5em !important;
+    background-color: rgba(54, 170, 54, 0.767) !important;
+    margin-left: 7em !important;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.RegisterButton:hover,
+.LoginButton:hover {
+    background-color: rgba(54, 170, 54, 0.678) !important;
+    cursor: pointer;
+}
+
+.NavbarDiv{
+    width: 100%;
+    height: 3.5em;
+    line-height: 3.5em;
+    background-color: red;
 }
