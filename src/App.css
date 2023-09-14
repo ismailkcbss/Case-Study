@@ -5,17 +5,21 @@
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif !important;
 }
 
+/*AUTH CSS*/
 .RegisterDiv,
-.LoginDiv {
+.LoginDiv,
+.CreateRequestDiv {
     width: 100%;
     height: 100vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
 .RegisterForm,
-.LoginForm {
+.LoginForm,
+.CreateRequestForm {
     width: 40em;
     height: auto;
     padding: 2em;
@@ -27,13 +31,15 @@
 }
 
 .RegisterInput,
-.LoginInput {
+.LoginInput,
+.CreateReqInput {
     margin-bottom: 2em !important;
     width: 35em !important;
 }
 
 .RegisterButton,
-.LoginButton {
+.LoginButton,
+.CreateReqButton {
     width: 25em !important;
     height: 3.5em !important;
     line-height: 3.5em !important;
@@ -42,14 +48,138 @@
 }
 
 .RegisterButton:hover,
-.LoginButton:hover {
+.LoginButton:hover,
+.CreateReqButton:hover {
     background-color: rgba(54, 170, 54, 0.678) !important;
     cursor: pointer;
 }
 
-.NavbarDiv{
+.LogintoRegister {
+    border: none;
+    background-color: transparent;
+    color: rgb(15, 113, 226);
+}
+
+.LogintoRegister:hover {
+    color: rgba(15, 113, 226, 0.705);
+    cursor: pointer;
+}
+
+.formHeaderButton {
+    border: none;
+    background-color: transparent;
+    border-radius: 50%;
+    transition: .2s ease-in-out;
+}
+
+.formHeaderButton:hover {
+    cursor: pointer;
+    background-color: rgb(219, 219, 219);
+    color: white;
+}
+
+/*NAVBAR CSS*/
+
+.NavbarDiv {
     width: 100%;
     height: 3.5em;
     line-height: 3.5em;
-    background-color: red;
+    padding-right: .5em;
+    background-color: rgb(230, 230, 230);
+    display: flex;
+    justify-content: end;
+}
+
+.NavbarButton {
+    width: 8em;
+    height: 2.5em;
+    line-height: 2.5em;
+    border: none;
+    background-color: transparent;
+    transition: .2s ease-in-out;
+    border-radius: .4em;
+
+}
+
+.NavbarButton:hover {
+    cursor: pointer;
+    background-color: rgb(207, 207, 207);
+}
+
+/*CASES CSS*/
+.CasesSearchBar {
+    width: 45em;
+    height: 3em;
+    line-height: 3em;
+    outline: none;
+    padding: .5em;
+    border-radius: .5em;
+}
+
+.AddCasesButton {
+    margin-right: 2em;
+    width: 10em;
+    height: 3em;
+    line-height: 3em;
+    color: white;
+    border: none;
+    border-radius: .4em;
+    transition: .2s ease-in-out;
+    background: linear-gradient(150deg,
+            rgba(69, 143, 132, 0.856) 5%,
+            rgba(98, 43, 134, 0.871) 100%);
+}
+
+.AddCasesButton:hover {
+    cursor: pointer;
+    background-color: green;
+}
+
+.RequestList {
+    display: grid;
+    grid-gap: 4rem;
+    grid-template-columns: repeat(auto-fit, minmax(20em, 2fr));
+    width: 98%;
+    height: auto;
+    min-height: 30em;
+    border: .1em solid rgb(138, 138, 138);
+    margin: 1em;
+    border-radius: .4em;
+    padding: 1em;
+}
+
+
+/*CASE CARD CSS*/
+.CaseCardDiv {
+    padding: .5em;
+    display: flex;
+    flex-direction: column;
+    width: 20em;
+    height: 15em;
+    border-radius: .4em;
+    background: linear-gradient(150deg,
+            rgba(91, 39, 214, 0.856) 5%,
+            rgba(21, 170, 180, 0.871) 100%);
+}
+.CaseCardHeader{
+    flex-basis: 95%;
+}
+.CardHeader {
+    display: -webkit-box;
+    font-size: 1.2em;
+    color: rgb(163, 163, 163);
+    white-space: pre-wrap !important;
+    word-break: break-all;
+    -webkit-line-clamp: 7;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+
+}
+
+.CaseCardFooter {
+    flex-basis: 5%;
+    width: 100%;
+    height: 5em;
+    display: flex;
+    justify-content: flex-end;
 }

@@ -19,8 +19,8 @@ axiosInstance.interceptors.response.use(
   (error) => {
     if (error.response?.status === 401) {
       storage.setKeyWithValue("token", "");
-      if (window.location.pathname !== '/Login')
-        window.location.assign('/Login');
+      if (window.location.pathname !== '/')
+        window.location.assign('/');
 
       return Promise.reject(error);
     }

@@ -103,7 +103,7 @@ export default function Login() {
                 <Button variant="contained" onClick={LoginPost} className='LoginButton'>
                     Login
                 </Button>
-
+               <span style={{margin:"2em 0 2em 0" }}>Click here to <button className='LogintoRegister' onClick={()=>(history.push('/Register'))}>Register</button></span>
             </form>
         </div>
     )

@@ -1,20 +1,11 @@
-import React, { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux'
+import React from 'react'
 import Navbar from './Navbar'
-import { axiosInstance } from '../axios.util';
+import {getValueByKey} from '../storage.helper'
+
+
 export default function Home() {
 
-  const token = window.localStorage.getItem("token");
-  const [data, setData] = useState([])
-
-  const getCase = async() => {
-    const {data} = await axiosInstance.get(`/api/auth/cases`)
-    setData(data)
-  }
-console.log(data);
-  useEffect(()=>{
-    getCase();
-  },[])
+  const token = getValueByKey("token");
 
   return (
     <div>

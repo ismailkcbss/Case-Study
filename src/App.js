@@ -1,9 +1,10 @@
 import './App.css';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import Home from './Components/Home'
 import Register from './Auth/Register';
 import Login from './Auth/Login';
 import Cases from './Auth/Cases';
+import ProtectedRoute from './Auth/ProtectedRoute';
+import CreateRequest from './Auth/CreateRequest';
 
 function App() {
 
@@ -11,10 +12,11 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Switch>
-          <Route exact path='/' component={Home} />
+          <Route exact path='/' component={Login} />
           <Route exact path='/Register' component={Register} />
-          <Route exact path='/Login' component={Login} />
-          <Route exact path='/Cases' component={Cases} />
+          <ProtectedRoute exact path='/Cases' component={Cases} />
+          <ProtectedRoute exact path='/CreateRequest' component={CreateRequest} />
+          <ProtectedRoute exact path='/CreateRequest/:id' component={CreateRequest} />
         </Switch>
       </BrowserRouter>
     </div>

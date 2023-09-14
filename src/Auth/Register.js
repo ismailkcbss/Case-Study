@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import axios from 'axios';
 import { useDispatch } from 'react-redux'
 import { userActions } from '../Redux/slice/userSlice';
 import { useHistory } from 'react-router-dom';
+import { axiosInstance } from '../axios.util';
 
 import TextField from '@mui/material/TextField';
 import FormControl from '@mui/material/FormControl';
@@ -13,7 +13,7 @@ import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import IconButton from '@mui/material/IconButton';
 import Button from '@mui/material/Button';
-import { axiosInstance } from '../axios.util';
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 
 
 
@@ -44,25 +44,24 @@ export default function Register() {
             [key]: value
         })
     }
-    const RegisterPost = async(event) => {
+    const RegisterPost = async (event) => {
         event.preventDefault();
-        if (form.Name.trim() === "" || 
-        form.Email.trim() === "" || 
-        form.Password.trim() === "" || 
-        form.PasswordConfirmation.trim() === "") {
+        if (form.Name.trim() === "" ||
+            form.Email.trim() === "" ||
+            form.Password.trim() === "" ||
+            form.PasswordConfirmation.trim() === "") {
             alert("Missing Information")
             return;
         }
         try {
-            debugger;
             const { data } = await axiosInstance.post(`/api/auth/register`, {
                 name: form.Name,
                 email: form.Email,
                 password: form.Password,
                 password_confirmation: form.PasswordConfirmation
             })
-           dispatch(userActions.set(data.user))
-            history.push('/Login');
+            dispatch(userActions.set(data.user))
+            history.push('/');
             alert(data.message)
         } catch (error) {
             alert("Registration Failed")
@@ -70,10 +69,17 @@ export default function Register() {
         setForm({ ...initialForm })
     }
 
+    const handleClickReturn = () => {
+        history.push('/')
+      }
+    
 
     return (
         <div className='RegisterDiv'>
             <form className='RegisterForm'>
+            <div style={{width:"100%", height:"3em",lineHeight:"3em"}}>
+                <button className='formHeaderButton' onClick={handleClickReturn}><ChevronLeftIcon sx={{ fontSize: '2em' }} /></button>
+            </div>
                 <TextField
                     id="Name"
                     label="Name"
